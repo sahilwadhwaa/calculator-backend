@@ -1,12 +1,15 @@
 import express from "express"
-import { saveCalculation, getCalculation } from "../controllers/calc.js"
+import { saveCalculation, getCalculation, addRemoveCalc } from "../controllers/calc.js"
 
 const router= express.Router();
 
 //READ
-router.get("/history", getCalculation)
+router.get("/history", getCalculation);
 
 //POST
-router.post("/history", saveCalculation)
+router.post("/history", saveCalculation);
+
+//DELETE
+router.delete("/history/:id", addRemoveCalc);
 
 export default router;
