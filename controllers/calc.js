@@ -9,7 +9,7 @@ export const saveCalculation= async (req, res) => {
         })
 
         await details.save();
-        const history= await History.find();
+        const history= await History.find().limit(10);
         res.status(201).json(history);
     }catch (err) {
         res.status(409).json({ message: err.message });
